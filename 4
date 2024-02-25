@@ -1,0 +1,79 @@
+№4
+
+№1
+class Fraction:
+    def __init__(self, numerator, denominator):
+        self.numerator = numerator
+        self.denominator = denominator
+
+    def is_proper(self):
+        return self.numerator < self.denominator
+
+fraction1 = Fraction(2, 3)
+fraction2 = Fraction(5, 2)
+
+print("Дріб 1 є правильним:", fraction1.is_proper())
+print("Дріб 2 є правильним:", fraction2.is_proper())
+
+№2
+class Vector:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def __add__(self, other):
+        return Vector(self.x + other.x, self.y + other.y)
+
+    def __sub__(self, other):
+        return Vector(self.x - other.x, self.y - other.y)
+
+    def __str__(self):
+        return f"({self.x}, {self.y})"
+vector1 = Vector(3, 4)
+vector2 = Vector(1, 2)
+sum_vector = vector1 + vector2
+print("Сума векторів:", sum_vector) 
+
+diff_vector = vector1 - vector2
+print("Різниця векторів:", diff_vector)
+
+№3
+class Animal:
+    def __init__(self, species, name):
+        self.species = species
+        self.name = name
+
+class Zoo:
+    def __init__(self):
+        self.animals = []
+
+    def add_animal(self, animal):
+        self.animals.append(animal)
+
+    def remove_animal(self, animal):
+        if animal in self.animals:
+            self.animals.remove(animal)
+            print(f"{animal.name} вилучений зі зоопарку.")
+        else:
+            print("Такої тварини немає у зоопарку.")
+
+# Приклад використання класів
+zoo = Zoo()
+
+lion = Animal("лев", "Симба")
+elephant = Animal("слон", "Дамбо")
+
+zoo.add_animal(lion)
+zoo.add_animal(elephant)
+
+print("Список тварин у зоопарку:")
+for animal in zoo.animals:
+    print(f"{animal.species} - {animal.name}")
+
+zoo.remove_animal(lion)
+
+print("Список тварин у зоопарку після вилучення лева:")
+for animal in zoo.animals:
+    print(f"{animal.species} - {animal.name}")
+
+№4
